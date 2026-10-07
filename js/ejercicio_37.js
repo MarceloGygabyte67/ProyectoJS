@@ -13,7 +13,7 @@ let Ventas2 = parseFloat(prompt("Ingrese las ventas de " + Empleado2 + ":"));
 let Ventas3 = parseFloat(prompt("Ingrese las ventas de " + Empleado3 + ":"));
 let Ventas4 = parseFloat(prompt("Ingrese las ventas de " + Empleado4 + ":"));
 
-// CALCULAR LA MEDIA ARITMÉTICA
+// CALCULAR LA MEDIA ARITMÉTICAhvhvhvhvg
 let Media = (Ventas1 + Ventas2 + Ventas3 + Ventas4) / 4;
 
 // MODIFICAR LAS COMISIONES
