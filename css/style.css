@@ -1,0 +1,1018 @@
+/* RESET GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #0b071e;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* BACKGROUND DECORATIONS & ANIMATIONS */
+.background-decorations {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.circle-left {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(130, 87, 229, 0.25) 0%, rgba(11, 7, 30, 0) 70%);
+    border-radius: 50%;
+    animation: bgPulse 8s ease-in-out infinite alternate;
+}
+
+.dots-top, .dots-bottom {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-image: radial-gradient(#6c5ce7 1.5px, transparent 1.5px);
+    background-size: 15px 15px;
+    opacity: 0.3;
+}
+
+.dots-top { top: 40px; right: 50px; }
+.dots-bottom { bottom: 40px; left: 50px; }
+
+/* CONTAINER PRINCIPAL & ENTRANCE ANIMATION */
+.container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    max-width: 950px;
+    background: #ffffff;
+    border-radius: 28px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
+    overflow: hidden;
+    animation: containerEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* SECCIÓN IZQUIERDA */
+.left-panel {
+    width: 42%;
+    background: linear-gradient(135deg, #1c133a 0%, #0d0822 100%);
+    padding: 35px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+/* BADGES Y BOTONES */
+.regards-badge {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    animation: badgePop 0.8s 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+}
+
+.heart-icon {
+    color: #ff4757;
+    margin-right: 4px;
+    display: inline-block;
+    animation: heartBeat 1.5s infinite;
+}
+
+/* ILUSTRACIÓN Y ELEMENTOS FLOTANTES */
+.illustration-container {
+    position: relative;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.laptop {
+    width: 160px;
+    position: relative;
+    z-index: 3;
+    animation: floatLaptop 4s ease-in-out infinite alternate;
+}
+
+.laptop .screen {
+    width: 100%;
+    height: 100px;
+    background: #181824;
+    border: 3px solid #33334e;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 15px rgba(108, 92, 231, 0.2);
+}
+
+.envelope {
+    width: 50px;
+    height: 32px;
+    background: #6c5ce7;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    animation: pulseEnvelope 2s infinite ease-in-out;
+}
+
+.envelope-flaps {
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-top: 18px solid #a29bfe;
+}
+
+.laptop .keyboard {
+    width: 190px;
+    height: 10px;
+    background: #2d2d44;
+    margin-left: -15px;
+    border-radius: 0 0 8px 8px;
+    position: relative;
+}
+
+/* GLOBOS E ÍCONOS DECORATIVOS */
+.badge-247 {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    background: #ffffff;
+    color: #111;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.7rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    z-index: 4;
+    animation: floatElement 3s ease-in-out infinite alternate;
+}
+
+.dots-bar {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 2px;
+}
+
+.dots-bar span {
+    width: 4px;
+    height: 4px;
+    background: #6c5ce7;
+    border-radius: 50%;
+}
+
+.chat-bubble {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #ffd32a;
+    padding: 8px 12px;
+    border-radius: 12px;
+    display: flex;
+    gap: 4px;
+    z-index: 4;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    animation: floatElement 3.5s ease-in-out 0.5s infinite alternate;
+}
+
+.chat-bubble .dot {
+    width: 5px;
+    height: 5px;
+    background: #111;
+    border-radius: 50%;
+    animation: typing 1.4s infinite ease-in-out;
+}
+
+.chat-bubble .dot:nth-child(2) { animation-delay: 0.2s; }
+.chat-bubble .dot:nth-child(3) { animation-delay: 0.4s; }
+
+.icon-bubble {
+    position: absolute;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    z-index: 4;
+}
+
+.icon-globe {
+    bottom: 25px;
+    left: 20px;
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+    animation: floatElement 2.8s ease-in-out 0.2s infinite alternate;
+}
+
+.icon-share {
+    bottom: 30px;
+    right: 25px;
+    width: 36px;
+    height: 36px;
+    animation: floatElement 3.2s ease-in-out 0.7s infinite alternate;
+}
+
+.bg-circle-yellow {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(255, 211, 42, 0.15) 0%, rgba(0,0,0,0) 70%);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.bg-circle-outline {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    z-index: 1;
+    animation: spin 30s linear infinite;
+}
+
+.left-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    animation: fadeUp 0.8s 0.6s ease-out backwards;
+}
+
+.left-footer h2 {
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.arrow-btn {
+    background: #6c5ce7;
+    border: none;
+    color: white;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow-btn:hover {
+    transform: translateX(5px);
+    background: #5b4bc4;
+}
+
+/* SECCIÓN DERECHA (FORMULARIO) */
+.right-panel {
+    width: 58%;
+    padding: 40px;
+    background: #ffffff;
+}
+
+.form-group {
+    margin-bottom: 18px;
+    opacity: 0;
+    transform: translateY(15px);
+    animation: formFadeIn 0.5s ease forwards;
+}
+
+/* Animación escalonada para cada campo */
+.form-group:nth-child(1) { animation-delay: 0.4s; }
+.form-group:nth-child(2) { animation-delay: 0.5s; }
+.form-group:nth-child(3) { animation-delay: 0.6s; }
+.form-group:nth-child(4) { animation-delay: 0.7s; }
+.form-group:nth-child(5) { animation-delay: 0.8s; }
+.form-group:nth-child(6) { animation-delay: 0.9s; }
+
+label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #8c8ca1;
+    letter-spacing: 1.2px;
+    margin-bottom: 6px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px 14px;
+    background: #f8f9fd;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    color: #2d3748;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+input::placeholder, textarea::placeholder {
+    color: #a0aec0;
+}
+
+input:focus, textarea:focus {
+    background: #ffffff;
+    border-color: #6c5ce7;
+    box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.12);
+    transform: translateY(-2px);
+}
+
+textarea {
+    resize: none;
+}
+
+/* BOTÓN DE ENVÍO */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #6c5ce7 0%, #5142ab 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(108, 92, 231, 0.3);
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: formFadeIn 0.5s 1s ease forwards;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(108, 92, 231, 0.45);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* KEYFRAMES DE LAS ANIMACIONES */
+@keyframes containerEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.96);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes formFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatLaptop {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-10px) rotate(1deg); }
+}
+
+@keyframes floatElement {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-8px); }
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+
+@keyframes pulseEnvelope {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes typing {
+    0%, 100% { transform: translateY(0); opacity: 0.4; }
+    50% { transform: translateY(-3px); opacity: 1; }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes bgPulse {
+    0% { opacity: 0.15; transform: scale(1); }
+    100% { opacity: 0.35; transform: scale(1.2); }
+}
+
+@keyframes badgePop {
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .left-panel, .right-panel {
+        width: 100%;
+    }
+    .illustration-container {
+        height: 200px;
+    }
+}
+/* RESET Y PERSPECTIVA 3D */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #0b071e;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+    position: relative;
+    perspective: 1200px; /* Habilita el espacio 3D */
+}
+
+/* BACKGROUND DECORATIONS */
+.background-decorations {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.circle-left {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(130, 87, 229, 0.25) 0%, rgba(11, 7, 30, 0) 70%);
+    border-radius: 50%;
+}
+
+.dots-top, .dots-bottom {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-image: radial-gradient(#6c5ce7 1.5px, transparent 1.5px);
+    background-size: 15px 15px;
+    opacity: 0.3;
+}
+
+.dots-top { top: 40px; right: 50px; }
+.dots-bottom { bottom: 40px; left: 50px; }
+
+/* CONTAINER PRINCIPAL CON ANIMACIÓN 3D */
+.container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    max-width: 950px;
+    background: #ffffff;
+    border-radius: 28px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: transform 1.2s cubic-bezier(0.55, 0.085, 0.68, 0.53), opacity 1.2s ease;
+}
+
+/* CLASE QUE HACE VOLAR EL FORMULARIO EN 3D AL ENVIAR */
+.container.fly-3d-out {
+    transform: translateY(-130vh) rotateX(55deg) rotateZ(20deg) scale(0.2);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* SECCIÓN IZQUIERDA */
+.left-panel {
+    width: 42%;
+    background: linear-gradient(135deg, #1c133a 0%, #0d0822 100%);
+    padding: 35px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+.regards-badge {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.heart-icon {
+    color: #ff4757;
+    margin-right: 4px;
+    display: inline-block;
+    animation: heartBeat 1.5s infinite;
+}
+
+/* ILUSTRACIÓN Y ELEMENTOS FLOTANTES */
+.illustration-container {
+    position: relative;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.laptop {
+    width: 160px;
+    position: relative;
+    z-index: 3;
+    animation: floatLaptop 4s ease-in-out infinite alternate;
+}
+
+.laptop .screen {
+    width: 100%;
+    height: 100px;
+    background: #181824;
+    border: 3px solid #33334e;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.envelope {
+    width: 50px;
+    height: 32px;
+    background: #6c5ce7;
+    border-radius: 4px;
+    position: relative;
+}
+
+.envelope-flaps {
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-top: 18px solid #a29bfe;
+}
+
+.laptop .keyboard {
+    width: 190px;
+    height: 10px;
+    background: #2d2d44;
+    margin-left: -15px;
+    border-radius: 0 0 8px 8px;
+}
+
+.badge-247 {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    background: #ffffff;
+    color: #111;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.7rem;
+    z-index: 4;
+}
+
+.chat-bubble {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #ffd32a;
+    padding: 8px 12px;
+    border-radius: 12px;
+    display: flex;
+    gap: 4px;
+    z-index: 4;
+}
+
+.icon-bubble {
+    position: absolute;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+}
+
+.icon-globe { bottom: 25px; left: 20px; width: 38px; height: 38px; }
+.icon-share { bottom: 30px; right: 25px; width: 36px; height: 36px; }
+
+.left-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-footer h2 { font-size: 1.1rem; letter-spacing: 2px; }
+
+.arrow-btn {
+    background: #6c5ce7;
+    border: none;
+    color: white;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* SECCIÓN DERECHA (FORMULARIO) */
+.right-panel {
+    width: 58%;
+    padding: 40px;
+    background: #ffffff;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #8c8ca1;
+    letter-spacing: 1.2px;
+    margin-bottom: 6px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px 14px;
+    background: #f8f9fd;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: #6c5ce7;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.12);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #6c5ce7 0%, #5142ab 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(108, 92, 231, 0.3);
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(108, 92, 231, 0.45);
+}
+
+/* ==========================================================================
+   PANTALLA Y PERSONAJE LÓRAX EN 3D
+   ========================================================================== */
+
+.lorax-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.lorax-overlay.active {
+    pointer-events: all;
+    opacity: 1;
+}
+
+.lorax-character {
+    position: relative;
+    width: 140px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform-style: preserve-3d;
+}
+
+.lorax-overlay.active .lorax-character {
+    animation: loraxFlyUp 3s ease-in-out infinite alternate;
+}
+
+/* Cuerpo del Lorax */
+.lorax-body {
+    width: 90px;
+    height: 110px;
+    background: #ff8c00;
+    border-radius: 45px 45px 35px 35px;
+    position: relative;
+    box-shadow: inset -6px -6px 0 rgba(0,0,0,0.15), 0 12px 25px rgba(0,0,0,0.35);
+}
+
+.eyes {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.eye {
+    width: 14px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+}
+
+.eye::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #2b1000;
+    border-radius: 50%;
+    top: 6px;
+    left: 4px;
+}
+
+.mustache {
+    position: absolute;
+    top: 42px;
+    left: -15px;
+    width: 120px;
+    height: 35px;
+    background: #ffd700;
+    border-radius: 20px 20px 40px 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.eyebrows {
+    position: absolute;
+    top: 10px;
+    left: -5px;
+    width: 100px;
+    height: 15px;
+    background: #ffd700;
+    border-radius: 10px;
+}
+
+.arms .arm {
+    position: absolute;
+    width: 18px;
+    height: 40px;
+    background: #e67e00;
+    border-radius: 10px;
+    top: 45px;
+}
+
+.arm.left { left: -10px; transform: rotate(20deg); }
+.arm.right { right: -10px; transform: rotate(-20deg); }
+
+.truffula-balloon {
+    width: 85px;
+    height: 85px;
+    background: radial-gradient(circle, #ff6b81 0%, #ff4757 100%);
+    border-radius: 50%;
+    box-shadow: 0 8px 20px rgba(255, 71, 87, 0.4);
+    margin-bottom: -20px;
+    z-index: -1;
+    animation: puff 2s ease-in-out infinite alternate;
+}
+
+/* DIÁLOGO DEL LÓRAX */
+.lorax-dialog {
+    background: #ffffff;
+    padding: 30px 25px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 420px;
+    margin-top: 25px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.6s 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.lorax-overlay.active .lorax-dialog {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.lorax-dialog h2 {
+    color: #1c133a;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.lorax-dialog p {
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.lorax-btn {
+    background: linear-gradient(135deg, #ff8c00 0%, #e67e00 100%);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(255, 140, 0, 0.4);
+    transition: transform 0.2s ease;
+}
+
+.lorax-btn:hover { transform: scale(1.05); }
+
+/* ANIMACIONES KEYFRAMES */
+@keyframes loraxFlyUp {
+    0% { transform: translateY(15px) rotate(-3deg); }
+    100% { transform: translateY(-15px) rotate(3deg); }
+}
+
+@keyframes puff {
+    0% { transform: scale(0.95); }
+    100% { transform: scale(1.05); }
+}
+
+@keyframes floatLaptop {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-8px); }
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+
+@media (max-width: 768px) {
+    .container { flex-direction: column; }
+    .left-panel, .right-panel { width: 100%; }
+}
+/* ==========================================
+   PANTALLA Y ANIMACIÓN DE ENTRADA 3D
+   ========================================== */
+
+/* Contenedor tipo telón que cubre toda la pantalla */
+.entrance-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1200px;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+/* Tarjeta / Carta flotante de bienvenida */
+.entrance-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem 3rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    max-width: 400px;
+    width: 90%;
+}
+
+.entrance-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite ease-in-out;
+}
+
+.entrance-card h2 {
+    color: #1e1b4b;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.entrance-card p {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.entrance-btn {
+    background: #4f46e5;
+    color: #ffffff;
+    border: none;
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.35);
+    transition: all 0.3s ease;
+}
+
+.entrance-btn:hover {
+    background: #4338ca;
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 25px rgba(79, 70, 229, 0.45);
+}
+
+/* EFECTO DE ELEVACIÓN Y DESAPARICIÓN 3D AL HACER CLIC */
+.entrance-screen.lift-up {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.entrance-screen.lift-up .entrance-card {
+    /* Eleva la tarjeta girándola en el eje 3D hacia arriba */
+    transform: translateY(-120vh) rotateX(45deg) scale(0.8);
+}
+
+/* Estado inicial del formulario mientras la pantalla de entrada está activa */
+.container {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    transition: opacity 0.8s ease 0.3s, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s;
+}
+
+/* Revelar formulario */
+.container.show-form {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}

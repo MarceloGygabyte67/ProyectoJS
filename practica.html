@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto 3D</title>
+
+    <!-- LIBRERIA DE FUENTES -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- ARCHIVO CSS EXTERNO -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<!-- 1. PANTALLA DE ENTRADA / BIENVENIDA 3D -->
+    <div class="entrance-screen" id="entranceScreen">
+        <div class="entrance-card">
+            <div class="entrance-icon">🌳</div>
+            <h2>Bienvenido</h2>
+            <p>Haz clic abajo para revelar el formulario de contacto 3D</p>
+            <button type="button" class="entrance-btn" id="openFormBtn">ABRIR FORMULARIO ✦</button>
+        </div>
+    </div>
+
+    <!-- 2. FONDO ABSTRACTO -->
+    <div class="background-decorations">
+        <div class="dots-top"></div>
+        <div class="dots-bottom"></div>
+        <div class="circle-left"></div>
+    </div>
+
+    <!-- 3. PANTALLA DEL LÓRAX (ANIMADO EN 3D - APROBADO / DESAPROBADO) -->
+    <div class="lorax-overlay" id="loraxOverlay">
+        <div class="lorax-character">
+            <!-- Copa de Truffula -->
+            <div class="truffula-balloon"></div>
+            
+            <!-- Personaje Lorax -->
+            <div class="lorax-body">
+                <div class="eyebrows"></div>
+                <div class="eyes">
+                    <span class="eye"></span>
+                    <span class="eye"></span>
+                </div>
+                <div class="mustache"></div>
+                <div class="arms">
+                    <span class="arm left"></span>
+                    <span class="arm right"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Diálogo dinámico -->
+        <div class="lorax-dialog" id="loraxDialog">
+            <h2 id="loraxTitle">¡Yo hablo por los árboles! 🌳</h2>
+            <p id="loraxMessage">¡Tu mensaje ha sido aprobado y ha salido volando por los aires con éxito!</p>
+            <button type="button" class="lorax-btn" id="resetBtn">VOLVER A INTENTAR</button>
+        </div>
+    </div>
+
+    <!-- 4. CONTENEDOR PRINCIPAL DEL FORMULARIO -->
+    <div class="container" id="mainContainer">
+        
+        <!-- Sección Izquierda (Ilustración e Información) -->
+        <div class="left-panel">
+            <div class="regards-badge">
+                <span class="heart-icon">♥</span> REGARDS
+            </div>
+
+            <div class="illustration-container">
+                <div class="badge-247">
+                    <div class="dots-bar"><span></span><span></span><span></span></div>
+                    <span>24/7</span>
+                </div>
+
+                <div class="chat-bubble">
+                    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                </div>
+
+                <div class="laptop">
+                    <div class="screen">
+                        <div class="envelope">
+                            <div class="envelope-flaps"></div>
+                        </div>
+                    </div>
+                    <div class="keyboard">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="trackpad"></div>
+                    </div>
+                </div>
+
+                <div class="icon-bubble icon-globe">🌐</div>
+
+                <div class="icon-bubble icon-share">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#221e56" stroke-width="2">
+                        <circle cx="18" cy="5" r="3" />
+                        <circle cx="6" cy="12" r="3" />
+                        <circle cx="18" cy="19" r="3" />
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+                    </svg>
+                </div>
+
+                <div class="bg-circle bg-circle-yellow"></div>
+                <div class="bg-circle bg-circle-outline"></div>
+            </div>
+
+            <div class="left-footer">
+                <h2>DOCUMENTO</h2>
+                <button class="arrow-btn" type="button" aria-label="Siguiente">&#10140;</button>
+            </div>
+        </div>
+
+        <!-- Sección Derecha (Formulario HTML5) -->
+        <div class="right-panel">
+
+            <form id="contactForm">
+
+                <div class="form-group">
+                    <label for="name">NOMBRE</label>
+                    <input type="text" id="name" name="name" placeholder="Nombre completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">COMPAÑIA</label>
+                    <input type="text" id="company" name="company" placeholder="Nombre de la compañía">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">TELEFONO</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Número de teléfono">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">CORREO ELECTRONICO</label>
+                    <input type="email" id="email" name="email" placeholder="Tu dirección de correo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">ASUNTO DE MENSAJE</label>
+                    <input type="text" id="subject" name="subject" placeholder="Describa brevemente el asunto de su mensaje.." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">MENSAJE</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">ENVIAR MENSAJE</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ARCHIVO JAVASCRIPT EXTERNO -->
+    <script src="js/Laboratorio_3/app.js"></script>
+</body>
+
+</html>
